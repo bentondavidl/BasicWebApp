@@ -18,4 +18,4 @@ This package requires that the user has Python3 and MongoDB installed on the hos
 2. Set up the virtual environment: `python -m venv venv`
 3. Activate the virtual environment (this needs to be done every time): `venv\Scripts\activate.bat`
 4. Install the python dependencies: `pip install -r requirements.txt`
-5. Run the application: `python wsgi.py`
+5. Run the application: `python app.py`
