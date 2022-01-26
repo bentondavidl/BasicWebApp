@@ -1,8 +1,12 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
 
 bp = Blueprint("index", __name__)
 
 @bp.route('/')
 @bp.route('/index')
 def index():
-    return render_template('index.html')
+    try:
+        user = session['user']
+    except KeyError:
+        user = None
+    return render_template('index.html', user=user)
