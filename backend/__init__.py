@@ -16,3 +16,4 @@ app.config['SECRET_KEY'] = os.getenv('APP_SECRET')
 
 import backend.routes.index
 import backend.routes.login
+import backend.routes.data_process
