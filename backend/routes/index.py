@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, session
 
 bp = Blueprint("index", __name__)
 
+
 @bp.route('/')
 @bp.route('/index')
 def index():

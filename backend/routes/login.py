@@ -1,11 +1,12 @@
-from flask import Blueprint, render_template, redirect, request, session, url_for
 import bcrypt
+from flask import Blueprint, render_template, redirect, request, session, url_for
 
 from backend import mongo
 
 bp = Blueprint("login", __name__)
 
-@bp.route('/login', methods=['GET','POST'])
+
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         users = mongo.db['users']
@@ -17,7 +18,7 @@ def login():
                 salt = bcrypt.gensalt()
                 hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
                 users.insert_one({'email': email, 'password': hashed})
-                session['user'] = email 
+                session['user'] = email
                 return redirect(url_for('index.index'))
             return 'user already exists'
 
@@ -29,6 +30,7 @@ def login():
             return 'login failed'
 
     return render_template('login.html')
+
 
 @bp.route('/logout', methods=['POST'])
 def logout():

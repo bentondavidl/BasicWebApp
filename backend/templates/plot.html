@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Plot</title>
-  </head>
-  {% with messages = get_flashed_messages() %} {% if messages %}
-  <ul class="flashes">
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %} {% endwith %}
-  <body>
-    <h1>Equation Graphing</h1>
-    <form action="/plot" method="post">
-      <label for="equation" name="Equation">Equation</label>
-      <input type="text" name="equation" />
-      <label for="range" name="range">Range</label>
-      <input type="text" name="range" />
-      <input type="submit" value="Plot" />
-    </form>
-    {% if plot %}
-    <img src="{{ plot }}" />
-    {% endif %}
-  </body>
+</head>
+{% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %} {% endwith %}
+<body>
+<h1>Equation Graphing for {{ user }}</h1>
+<a href="{{ url_for('index.index') }}">Home</a>
+<form action="/plot" method="post">
+    <label for="equation" name="Equation">Equation</label>
+    <input type="text" name="equation"/>
+    <label for="range" name="range">Range</label>
+    <input type="text" name="range"/>
+    <input type="submit" value="Plot"/>
+</form>
+{% if plot %}
+    <h4>{{ equation }}</h4>
+    <img src="{{ plot }}"/>
+{% endif %}
+</body>
 </html>

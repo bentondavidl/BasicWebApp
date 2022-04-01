@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 from flask.app import Flask
 from flask_pymongo import PyMongo
