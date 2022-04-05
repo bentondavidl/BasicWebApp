@@ -60,6 +60,13 @@ def plot_route():
     return render_template('plot.html', user=session.get('user'))
 
 
+"""
+Create a new route here that accepts a POST request. 
+The method will take data from the form in the request and save it to a collection in our database.
+To save it in the database, create a new record with the username, equation, and the note
+"""
+
+
 def parse_file(file: FileStorage):
     return repr(pd.read_csv(file))
 
